@@ -1,0 +1,7 @@
+<form [formGroup]="formBuilder">
+    <label>name</label>
+    <input type="text" formControlName="nomFoyer">
+    <label>capacite</label>
+    <input type="number" formControlName="capaciteFoyer">
+    <input type="submit" value="update" (click)="update()">
+ </form>

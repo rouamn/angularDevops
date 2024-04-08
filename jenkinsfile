@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+    environment {
+        DOCKER_IMAGE_NAME = "rouamnissi/angular"
+        DOCKER_HUB_CREDENTIALS = 'docker'
+        DOCKER_COMPOSE_VERSION = "1.29.2"
+    }
+
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+            stage('docker Build') {
+                    steps {
+                        sh 'docker build -t rouamnissi/angular .'
+                    }
+                }
+            stage('docker push') {
+                    steps {
+                        sh 'docker push rouamnissi/angular:latest'
+                    }
+                }
+
+
+            stage('Run Docker Compose') {
+                            steps {
+                                script {
+                                    // Perform Docker login
+                                    sh 'docker login -u rouamnissi  -p 123456789'
+
+                                    // Pull the Docker image
+                                    sh 'docker pull rouamnissi/angular'
+
+                                    // Run Docker Compose    s
+                                    sh 'docker compose up -d'
+                                }
+                            }
+                        }
+
+
+            }
+        }
+

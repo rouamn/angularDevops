@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  angular-app:
+    image: rouamnissi/angular:latest
+    ports:
+      - "4201:80"  # Specify ports as strings
+    restart: always  # Restart should be under the service
+
+
+
+
+

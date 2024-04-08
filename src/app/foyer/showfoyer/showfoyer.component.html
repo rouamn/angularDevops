@@ -1,0 +1,22 @@
+
+<button (click)="navigateToaddFoyer()">ADD</button>
+<table>
+    <thead>
+      <tr>
+        <th>Nom Foyer</th>
+        <th>Capacité Foyer</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let foyer of foyers">
+        <td>{{ foyer.nomFoyer }}</td>
+        <td>{{ foyer.capaciteFoyer }}</td>
+        <td>
+            <button (click)="delete(foyer.idFoyer)">Delete</button>
+          <button (click)="navigateToUpdateFoyer(foyer.idFoyer)">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

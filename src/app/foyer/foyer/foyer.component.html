@@ -1,0 +1,27 @@
+<div>
+    <h1>Add Foyer</h1>
+  
+    <form #foyerForm="ngForm" (ngSubmit)="saveFoyer()">
+      <!-- Foyer details input fields -->
+      <label for="foyerName">Foyer Name:</label>
+      <input type="text" id="foyerName" name="foyerName" [(ngModel)]="foyer.nomFoyer" required>
+      <br>
+      <label for="foyerCapacity">Foyer Capacity:</label>
+      <input type="number" id="foyerCapacity" name="foyerCapacity" [(ngModel)]="foyer.capaciteFoyer" required>
+      
+      
+    
+      
+    
+    
+<br>
+
+
+    
+  
+      <!-- Other Foyer details input fields go here -->
+  
+      <button type="submit">Save Foyer</button>
+    </form>
+  </div>
+  
