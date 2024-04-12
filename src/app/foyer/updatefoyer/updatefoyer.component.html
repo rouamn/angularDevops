@@ -1,7 +1,18 @@
+
+
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h1 class="card-title mb-0 text-center">update Foyer</h1>
+    </div>
+    <div class="form-container">
 <form [formGroup]="formBuilder">
     <label>name</label>
-    <input type="text" formControlName="nomFoyer">
+    <input type="text" formControlName="nomFoyer" class="form-control">
     <label>capacite</label>
-    <input type="number" formControlName="capaciteFoyer">
-    <input type="submit" value="update" (click)="update()">
+    <input type="number" formControlName="capaciteFoyer" class="form-control">
+    <input class="btn btn-primary btn-block" type="submit" value="update" (click)="update()">
  </form>
+
+
+</div>
