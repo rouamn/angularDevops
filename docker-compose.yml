@@ -1,32 +1,27 @@
 version: '3.8'
+
 services:
   angular-app:
     image: rouamnissi/angular:latest
     ports:
-      - "4201:80"  # Specify ports as strings
-    restart: always  # Restart should be under the service
+      - "4201:80"  # Map port 80 inside the container to port 4201 on the host
+    restart: always
 
-prometheus:
+  prometheus:
     image: prom/prometheus
     ports:
       - "9091:9090"
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # Mount Prometheus configuration file
 
   grafana:
     image: grafana/grafana
     ports:
       - "3001:3000"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=grafana
+      - GF_SECURITY_ADMIN_PASSWORD=grafana  # Set Grafana admin password
     volumes:
-      - grafana_data:/var/lib/grafana
+      - grafana_data:/var/lib/grafana  # Mount Grafana data volume
 
 volumes:
   grafana_data:
-  db:
-
-
-
-
-
